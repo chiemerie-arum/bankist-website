@@ -7,6 +7,12 @@ const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+const nav = document.querySelector('.nav');
+const buttonScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
 const openModal = function () {
   modal.classList.remove('hidden');
@@ -30,9 +36,6 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-const buttonScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
 buttonScrollTo.addEventListener('click', e => {
   const s1coords = section1.getBoundingClientRect();
   // console.log(s1coords);
@@ -40,11 +43,7 @@ buttonScrollTo.addEventListener('click', e => {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
-////////////////////////////////////////////////
 //Page Navigation
-//Event delegation steps
-//1. add the event listener to the common element
-//2. determine what element originated the event
 document.querySelector('.nav__links').addEventListener('click', function (e) {
   //matching strategy
   if (e.target.classList.contains('nav__link')) {
@@ -55,10 +54,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
   }
 });
 
-// Implement Tabbed Component
-const tabs = document.querySelectorAll('.operations__tab');
-const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
+//Tabbed Component
 
 tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
